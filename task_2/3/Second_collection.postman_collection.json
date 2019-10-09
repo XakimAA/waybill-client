@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "47ff6830-4645-475b-a004-64d699af7433",
+		"name": "Second_collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://waybill-server.herokuapp.com/invoices?{{key}}={{value}}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e36f2526-397d-4ea4-8e38-1b843517e15e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Filter comment is correct\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    var key = pm.variables.get('key');\r",
+							"    var value = pm.variables.get('value');\r",
+							"    pm.expect(jsonData[0][key].toString()).to.eql(value);\r",
+							"}); \r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://waybill-server.herokuapp.com/invoices?{{key}}={{value}}",
+					"protocol": "https",
+					"host": [
+						"waybill-server",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"invoices"
+					],
+					"query": [
+						{
+							"key": "{{key}}",
+							"value": "{{value}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

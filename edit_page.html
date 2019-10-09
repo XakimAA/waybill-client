@@ -3,26 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Накладная</title>
+  <title>Invoices</title>
   <script src="js/jquery.min.js"></script>
   <script src="js/edit_page.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="https://wzrd.in/standalone/uuid%2Fv1@latest"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <link rel="stylesheet" href="css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/edit_page.css">
 </head>
 <body>
     <div class="container">
         <h2>Invoices</h2>
-        <label>Number:</label>
+        <input id="direction" hidden>
+        <label>Number<span class="require">*</span>:</label>
         <input class="form-control" id="number"> 
-        <label>Invoice date:</label>
+        <label>Invoice date<span class="require">*</span>:</label>
         <input class="form-control" id="date_created"> 
-        <label>Supply date:</label>
+        <label>Supply date<span class="require">*</span>:</label>
         <input class="form-control" id="date_supply"> 
         <label>Comment:</label>
-        <input class="form-control" id="comment"> 
+        <textarea class="form-control" id="comment"></textarea>
+        <label class="require">*required field</label>
         <button id="btnAction" class="btn btn-primary float-right">Save</button>
     </div>
 </body>

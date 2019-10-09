@@ -3,22 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Накладная</title>
+  <title>Invoices</title>
   <script src="js/jquery.min.js"></script>
   <script src="js/main.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <link rel="stylesheet" href="css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <div class="container">
-        <div class="border">
+        <div class="">
             <h2>Invoices</h2>
         </div>
-        <div class="block">
-            <h4>Actions</h4>
+        <div class="block border">
+            <h5>Actions</h5>
             <button id="addNew" class="btn btn-primary">Add new</button>
         </div>
         <div class="row searchPanel">
@@ -27,14 +30,18 @@
             </div>
             <div class="col-2">
                 <input class="form-control" id="fullSearch">    
+                <input class="form-control" id="dateSearch">  
             </div>
             <div class="col-1 col-form-label">
                 <label>Filter by:</label>
             </div>
             <div class="col-2">
                 <select id="searchItem" class="custom-select">
-                    <option selected>id</option>
-                    <option >number</option>
+                    <option selected>all</option>
+                    <option>Create date</option>
+                    <option>Number</option>
+                    <option>Supply date</option>
+                    <option>Comment</option>
                 </select>
             </div>
             <div class="col-1 col-form-label">
@@ -42,26 +49,28 @@
             </div>
             <div class="col-2">
                 <select id="orderItem" class="custom-select">
-                    <option selected>id</option>
-                    <option >number</option>
+                    <option name="date_created" selected >Create date</option>
+                    <option name="number">Number</option>
+                    <option name="date_supply">Supply date</option>
+                    <option name="comment">Comment</option>
                 </select>
             </div>
             <div class="col-2">
-                <select id="orderItem" class="custom-select">
-                    <option selected>id</option>
-                    <option >number</option>
+                <select id="orderDirection" class="custom-select">
+                    <option name="asc" selected>ASC</option>
+                    <option name="desc">DESC</option>
+                    <option name="nothing">Nothing</option>
                 </select>
             </div>
             <div class="col-1"> 
-                <button class="btn btn-primary">Go</button>
+                <button id="go" class="btn btn-primary">Go</button>
             </div>
         </div>
-        <div class="block ">
-            <h4>Invoices</h4>
+        <div class="block border">
+            <h5>Invoices</h5>
             <table class="table">
                 <thead class="thead-dark">
                   <tr>
-                    <th scope="col">id</th>
                     <th scope="col">Create</th>
                     <th scope="col">Number</th>
                     <th scope="col">Supply</th>
